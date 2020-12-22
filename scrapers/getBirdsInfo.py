@@ -66,7 +66,7 @@ for i, bird in enumerate(list(birds_info.values())):
 
 # save as csv
 columns = ["Common Name", "SEO Name", "Scientific Name", "English Name", "Order", "Family"]
-with open('data/chileanBirds.csv', 'w') as birdsCSV:
+with open('data/birdNames.csv', 'w') as birdsCSV:
     writer = csv.DictWriter(birdsCSV, fieldnames=columns)
     writer.writeheader()
     for idx, bird in birds_data.items():
