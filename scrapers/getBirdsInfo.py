@@ -25,6 +25,7 @@ print(f'{len(birds_info)} aves encontradas!')
 # time between requests
 times = [5.8, 6.6, 7, 7.7, 8, 8.5, 9, 8.5, 3.6, 3.9, 6.2]
 
+birds_data = {}
 for i, bird in enumerate(list(birds_info.values())):
     print(f' - Iterating over {bird["SEO Name"]} ({i + 1}/{len(birds_info)})')
 
@@ -40,21 +41,24 @@ for i, bird in enumerate(list(birds_info.values())):
     names = bird_soup.findAll("td", attrs={"background": 'fond3.gif'})
 
     # process information obtained
-    birds_info[i]["Order"] = order.text.split(':')[1].strip()
-    birds_info[i]["Family"] = family.text.split(':')[1].strip()
-    birds_info[i]["Common Name"] = names[0].text.lower().capitalize().strip()
-    birds_info[i]["Scientific Name"] = names[1].text.lower().capitalize().strip()
-    birds_info[i]["English Name"] = names[2].text.lower().capitalize().strip()
+    birds_data[i] = {}
+    birds_data[i]["SEO Name"] = birds_info[i]["SEO Name"]
+    birds_data[i]["Order"] = order.text.split(':')[1].strip()
+    birds_data[i]["Family"] = family.text.split(':')[1].strip()
+    birds_data[i]["Common Name"] = names[0].text.lower().capitalize().strip()
+    birds_data[i]["Scientific Name"] = names[1].text.lower().capitalize().strip()
+    birds_data[i]["English Name"] = names[2].text.lower().capitalize().strip()
 
     # wait to avoid overload on server
     sleep_time = random.choice(times)
     time.sleep(sleep_time)
 
+    break
 
 # save as csv
-columns = ["Common Name", "SEO Name", "Scientific Name", "English Name", "Order", "Family", "URL"]
-with open('../data/chileanBirds.csv', 'w') as birdsCSV:
+columns = ["Common Name", "SEO Name", "Scientific Name", "English Name", "Order", "Family"]
+with open('data/chileanBirds.csv', 'w') as birdsCSV:
     writer = csv.DictWriter(birdsCSV, fieldnames=columns)
     writer.writeheader()
-    for idx, bird in birds_info.items():
+    for idx, bird in birds_data.items():
         writer.writerow(bird)
