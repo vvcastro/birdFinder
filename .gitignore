@@ -1,4 +1,6 @@
+# anoying files
 .DS_Store
+.vscode
 
 # don't load images
 *.jpeg

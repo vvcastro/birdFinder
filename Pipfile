@@ -8,6 +8,8 @@ selenium = "*"
 requests = "*"
 beautifulsoup4 = "*"
 lxml = "*"
+numpy = "*"
+pandas = "*"
 
 [dev-packages]
 autopep8 = "*"
