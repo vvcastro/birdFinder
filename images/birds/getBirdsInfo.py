@@ -46,14 +46,9 @@ for i, bird in enumerate(list(birds_info.values())):
     birds_info[i]["Scientific Name"] = names[1].text.lower().capitalize().strip()
     birds_info[i]["English Name"] = names[2].text.lower().capitalize().strip()
 
-    print(birds_info[i])
-
     # wait to avoid overload on server
     sleep_time = random.choice(times)
     time.sleep(sleep_time)
-
-    if i == 2:
-        break
 
 
 # save as csv
