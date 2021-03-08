@@ -1,6 +1,8 @@
 # anoying files
 .DS_Store
 .vscode
+geckodriver.log
+/data/eBird
 
 # don't load images
 *.jpeg

@@ -8,7 +8,9 @@ selenium = "*"
 requests = "*"
 beautifulsoup4 = "*"
 lxml = "*"
-numpy = "*"
+numpy = "==1.18.0"
+matplotlib = "*"
+pillow = "*"
 pandas = "*"
 
 [dev-packages]

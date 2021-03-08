@@ -28,7 +28,7 @@ print("#" * 20)
 # SCRAPING EACH BIRD RECOLECTED
 
 # time between requests
-times = [5.8, 6.6, 7, 7.7, 8, 8.5, 9, 8.5, 3.6, 3.9, 6.2]
+times = [3.8, 3.5, 4, 5.7, 5, 5.5, 6.5, 4.5, 3.6, 3.9, 6.2]
 
 birds_data = {}
 for i, bird in enumerate(list(birds_info.values())):
@@ -65,7 +65,7 @@ for i, bird in enumerate(list(birds_info.values())):
     time.sleep(sleep_time)
 
 # save as csv
-columns = ["Common Name", "SEO Name", "Scientific Name", "English Name", "Order", "Family"]
+columns = ["Scientific Name", "English Name", "Common Name", "SEO Name", "Order", "Family"]
 with open('data/birdNames.csv', 'w') as birdsCSV:
     writer = csv.DictWriter(birdsCSV, fieldnames=columns)
     writer.writeheader()
